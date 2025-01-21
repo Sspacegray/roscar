@@ -1,0 +1,3 @@
+<launch>
+    <node pkg = "RobotCar" type ="hand_get" name ="hand_get" output = "screen" />
+</launch>

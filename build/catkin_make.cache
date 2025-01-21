@@ -1,0 +1,2 @@
+RobotCar:apriltag_detection:rplidar_ros
+-DCATKIN_DEVEL_PREFIX=/home/su/RobotGG_ws/devel -DCMAKE_INSTALL_PREFIX=/home/su/RobotGG_ws/install -G Unix Makefiles
