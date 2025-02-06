@@ -1,0 +1,8 @@
+prefix=/home/hy/Robot_ws/install
+
+Name: RobotCar
+Description: Description of RobotCar
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: roscpp rospy std_msg

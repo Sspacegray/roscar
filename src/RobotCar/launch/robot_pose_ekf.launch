@@ -1,0 +1,50 @@
+<launch>
+  <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
+    <param name="output_frame" value="odom_combined"/>  <!-- 输出的坐标系名称 -->
+    <param name="freq" value="30.0"/>                   <!-- EKF更新频率(Hz) -->
+    <param name="sensor_timeout" value="1.0"/>          <!-- 传感器数据超时时间(秒) -->
+    <param name="odom_used" value="true"/>              <!-- 是否使用里程计数据 -->
+    <param name="imu_used" value="true"/>               <!-- 是否使用IMU数据 -->
+    <param name="vo_used" value="false"/>               <!-- 是否使用视觉里程计数据 -->
+    <param name="debug" value="false"/>
+    <param name="self_diagnose" value="false"/>
+    
+    <!-- IMU covariance parameters -->
+    <!-- IMU协方差参数 -->
+    <param name="imu_covariance_roll" value="0.01"/>    <!-- IMU横滚角协方差 -->
+    <param name="imu_covariance_pitch" value="0.01"/>   <!-- IMU俯仰角协方差 -->
+    <param name="imu_covariance_yaw" value="0.01"/>     <!-- IMU偏航角协方差 -->
+
+    <!-- 里程计协方差参数 -->
+    <param name="odom_covariance_x" value="0.1"/>       <!-- 里程计X方向协方差 -->
+    <param name="odom_covariance_y" value="0.1"/>       <!-- 里程计Y方向协方差 -->
+    <param name="odom_covariance_yaw" value="0.1"/>     <!-- 里程计偏航角协方差 -->
+    
+    <remap from="odom" to="/odom" />
+    <remap from="imu_data" to="/imu" />
+    <remap from="robot_pose_ekf/odom_combined" to="/odom_combined" />
+  </node>
+</launch>
+
+  <!-- #调参建议
+ 更新频率(freq)
+建议范围：10Hz ~ 50Hz
+
+如果IMU质量较好，可以设置更小的值（如0.005）
+如果IMU漂移严重，建议增大这些值
+里程计协方差参数
+建议范围：0.01 ~ 1.0
+值越小表示对里程计数据越信任
+在平坦地面上可以使用较小的值
+如果地面不平或打滑严重，建议增大这些值
+调参步骤建议：
+首先使用默认参数运行系统
+观察机器人运动时的位姿估计稳定性
+如果位姿飘动明显：
+检查传感器数据质量
+适当增大对应传感器的协方差值
+如果位姿反应迟钝：
+可以提高更新频率
+减小协方差值
+反复测试和微调，直到获得理想的效果
+注意：协方差参数的调整要谨慎，建议每次调整的幅度不要超过50%，并且要充分测试。 -->

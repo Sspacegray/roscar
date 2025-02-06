@@ -1,0 +1,15 @@
+<launch>
+
+    <!-- 设置参数 -->
+    <param name="robot_description" textfile="$(find RobotCar)/urdf/x-agrobot.urdf" />
+
+
+
+    <node pkg="joint_state_publisher" name="joint_state_publisher" type="joint_state_publisher" />
+    <node pkg="robot_state_publisher" name="robot_state_publisher" type="robot_state_publisher" />
+
+    <!-- 启动 rviz -->
+    <!-- <node pkg="rviz" type="rviz" name="rviz" /> -->
+    <node pkg = "rviz" type = "rviz" name = "rviz" args = "-d $(find RobotCar)/config/car_config.rviz"/>
+
+</launch>

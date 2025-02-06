@@ -1,0 +1,8 @@
+# Request
+bool clear_all  # 是否清除所有动态障碍物
+string[] obstacle_ids  # 要清除的特定障碍物ID列表
+
+---
+# Response
+bool success  # 是否成功
+string message  # 返回信息

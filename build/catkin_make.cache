@@ -1,0 +1,2 @@
+RobotCar:apriltag_detection:rplidar_ros
+-DCMAKE_BUILD_TYPE=RelWithDebInfo -DCATKIN_DEVEL_PREFIX=/home/hy/Robot_ws/devel -DCMAKE_INSTALL_PREFIX=/home/hy/Robot_ws/install -G Unix Makefiles

@@ -1,0 +1,18 @@
+<launch>
+
+    <remap from="/imu" to="wit/imu"/>
+    <node pkg="message_filters" type="time_synchronizer" name="odom_imu_sync"
+      args="/odom /imu" output="screen">
+      <param name="queue_size" value="10"/>
+    </node>
+    <include file="$(find rplidar_ros)/launch/rplidar_c1.launch" />
+    <include file="$(find RobotCar)/launch/serial_communication_pub.launch" /> 
+     <!-- <include file="$(find RobotCar)/launch/camera.launch" /> -->
+    <include file="$(find RobotCar)/launch/urdf.launch" />
+    <include file="$(find RobotCar)/launch/robot_pose_ekf.launch" />
+    <include file="$(find RobotCar)/launch/nav06_test.launch" /> 
+    <!-- <include file="$(find RobotCar)/launch/QTandHand.launch" />  -->
+    <!-- <include file="$(find RobotCar)/launch/nav07_slam_path.launch" />  -->
+    
+    <!-- 启动巡检节点 -->
+</launch>

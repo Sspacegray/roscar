@@ -1,0 +1,5 @@
+int32 room_point
+int32 robot_start
+
+---
+int32 goal_point

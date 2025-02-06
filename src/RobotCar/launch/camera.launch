@@ -1,0 +1,4 @@
+<launch>
+    <include file="$(find apriltag_detection)/launch/camera.launch" />
+    <include file="$(find apriltag_detection)/launch/continuous_detection.launch" />
+</launch>
